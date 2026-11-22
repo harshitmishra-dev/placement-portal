@@ -2,7 +2,7 @@
 
 A small web app where students create a profile, upload a resume, browse internships, apply, and track application status. A basic skill-matching feature ranks internships by how many required skills the student already has.
 
-## Tech stack
+## Tech stacks
 - Frontend: HTML, CSS, JavaScript
 - Backend: Node.js (built-in `http` module, JSON file storage)
 - DevOps: Docker, Docker Compose, Jenkins (Jenkinsfile), GitHub Actions (YAML)
