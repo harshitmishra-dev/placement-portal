@@ -1,0 +1,41 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Lint
+        run: npm run lint
+      - name: Run tests
+        run: npm test
+
+  docker:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Docker image
+        run: docker build -t placement-portal:${{ github.sha }} .
+      - name: Run container and smoke test
+        run: |
+          docker run -d --name portal -p 3000:3000 placement-portal:${{ github.sha }}
+          sleep 5
+          curl -f http://localhost:3000/health
+      # Uncomment to push to Docker Hub (add DOCKERHUB_USERNAME / DOCKERHUB_TOKEN in repo secrets)
+      # - uses: docker/login-action@v3
+      #   with:
+      #     username: ${{ secrets.DOCKERHUB_USERNAME }}
+      #     password: ${{ secrets.DOCKERHUB_TOKEN }}
+      # - run: |
+      #     docker tag placement-portal:${{ github.sha }} ${{ secrets.DOCKERHUB_USERNAME }}/placement-portal:latest
+      #     docker push ${{ secrets.DOCKERHUB_USERNAME }}/placement-portal:latest

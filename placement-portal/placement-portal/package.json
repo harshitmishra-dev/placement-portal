@@ -1,0 +1,12 @@
+{
+  "name": "placement-portal",
+  "version": "1.0.0",
+  "description": "Smart Placement & Internship Portal - DevOps mini project",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test",
+    "lint": "node --check src/server.js && node --check src/match.js && node --check public/app.js"
+  },
+  "license": "MIT"
+}

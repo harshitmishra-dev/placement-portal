@@ -1,0 +1,13 @@
+services:
+  portal:
+    build: .
+    image: placement-portal:latest
+    container_name: placement-portal
+    ports:
+      - "3000:3000"
+    volumes:
+      - portal-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  portal-data:

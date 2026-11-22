@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Placement & Internship Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Smart Placement &amp; Internship Portal</h1>
+    <nav>
+      <button class="tab active" data-tab="internships">Internships</button>
+      <button class="tab" data-tab="applications">My applications</button>
+      <button class="tab" data-tab="profile">My profile</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="internships" class="panel active">
+      <input id="search" type="search" placeholder="Search by role, company, city or skill">
+      <p id="skillHint" class="hint"></p>
+      <div id="internshipList" class="grid"></div>
+    </section>
+
+    <section id="applications" class="panel">
+      <div id="stats" class="stats"></div>
+      <table>
+        <thead><tr><th>Role</th><th>Company</th><th>Applied on</th><th>Status</th><th></th></tr></thead>
+        <tbody id="appRows"></tbody>
+      </table>
+      <p id="appEmpty" class="hint"></p>
+    </section>
+
+    <section id="profile" class="panel">
+      <form id="profileForm">
+        <label>Full name <input name="name" required></label>
+        <label>Email <input name="email" type="email" required></label>
+        <label>Branch / course <input name="branch" placeholder="e.g. B.Tech CSE, 3rd year"></label>
+        <label>Skills (comma separated) <input name="skills" placeholder="html, css, javascript, docker"></label>
+        <button type="submit" class="primary">Save profile</button>
+      </form>
+      <div class="resume">
+        <h2>Resume</h2>
+        <p id="resumeInfo" class="hint">No resume uploaded yet.</p>
+        <input id="resumeFile" type="file" accept=".pdf,.doc,.docx">
+        <button id="resumeBtn" class="primary">Upload resume</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
