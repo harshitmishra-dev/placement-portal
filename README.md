@@ -32,7 +32,7 @@ docker compose up --build -d
 - **Jenkins** (`Jenkinsfile`): Checkout, Lint, Test, Build Docker Image, Deploy, Smoke Test.
 
 ## Cloud deployment
-Deployed to Azure App Service (Web App for Containers) via `.github/workflows/deploy-azure.yml`. Step-by-step setup: [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+Deployed on Render (Docker web service, free tier). Render builds the Dockerfile from this repo and redeploys on every push to main. Setup: docs/DEPLOYMENT.md
 
 ## API
 | Method | Endpoint | Purpose |
