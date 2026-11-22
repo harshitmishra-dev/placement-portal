@@ -50,5 +50,5 @@ src/        server, matching logic, internship data
 public/     HTML, CSS, JS frontend
 test/       unit and API tests
 docs/        architecture diagram and deployment guide
-Dockerfile, docker-compose.yml, Jenkinsfile, .github/workflows/ (ci.yml, deploy-azure.yml)
+Dockerfile, docker-compose.yml, Jenkinsfile, .github/workflows/ci.yml, render.yaml
 ```
